@@ -8,6 +8,7 @@ import numpy as np
 
 
 def make_array(arr):  # taking parameters array and k, k being the deleted element.
+
     b_arr = np.array(arr)
     np.random.shuffle(b_arr)
 
@@ -19,16 +20,30 @@ def make_array(arr):  # taking parameters array and k, k being the deleted eleme
 def contrast_between_arrays(arr_1, arr_2):
     a1 = sorted(arr_1)
     a2 = sorted(arr_2)
-    if len(a1) == len(a2):
-        return "No missing element."
-    else:
-        seen = set()
-        while a1 < a2:
-            for k in a1 not in a2:
-                return k
-        seen.add(k)
+    seen = {}
+    for element in a1:
+        if element in seen:
+            seen[element] += 1
+
+        else:
+            seen[element] = 1
+
+    for element in a2:
+        if element in seen:
+            seen[element] -= 1
+        else:
+            seen[element] = 1
+
+    for k in seen:
+        if seen[k] != 0:
+            return k
+    return "No missing elements"
 
 
 arr = [1, 2, 3, 4, 5]
-print(make_array(arr))
-print(contrast_between_arrays(arr, make_array(arr)))
+original_array = np.array(arr)
+shuffled_and_deleted_array = make_array(arr)
+print(original_array)
+print(shuffled_and_deleted_array)
+print(contrast_between_arrays(original_array, shuffled_and_deleted_array))
+
