@@ -12,13 +12,10 @@ def pair_sum(arr, k):
 
     while pointer_1 < pointer_2:
         current_sum = arr[pointer_1] + arr[pointer_2]
-        # pair = arr[pointer_1], arr[pointer_2]
+        pair = arr[pointer_1], arr[pointer_2]
         if current_sum == k:
-            pair = (arr[pointer_1],  arr[pointer_2])
-            if pair not in seen:
-                pairs.append(pair)
-                seen.add(pair)
-            pointer_1 += 1
+            pairs.append(pair)
+            seen.add(pair)
             pointer_2 -= 1
 
         if current_sum < k:
@@ -29,7 +26,15 @@ def pair_sum(arr, k):
     return pairs if pairs else "No pair sum."
 
 
-arr = [1, 2, 3, 4, 5]
-k = 5
+arr_elements = input("Enter elements separated by commas: ")
+arr_list = arr_elements.split(',')
+arr = []
+for x in arr_list:
+    arr.append(int(x))
+
+print(arr)
+k = int(input("k: "))
 print(pair_sum(arr, k))
+
+
 
