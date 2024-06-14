@@ -46,10 +46,14 @@ def contrast_between_arrays(arr_1, arr_2):
     return "No missing elements"
 
 
-arr = [1, 2, 3, 4, 5]
+arr_element = input("elements, separated with commas: ")
+arr_list = arr_element.split(',')
+arr = []
+for x in arr_list:
+    arr.append(int(x))
+
 original_array = np.array(arr)
 shuffled_and_deleted_array = make_array(arr)
 print(original_array)
 print(shuffled_and_deleted_array)
 print(contrast_between_arrays(original_array, shuffled_and_deleted_array))
-
