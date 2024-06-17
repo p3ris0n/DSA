@@ -10,16 +10,16 @@ def large_contiguous_sum(arr):
     cur_sum = 0
     max_so_far = arr[0]
     for i in range(len(arr)):
-        cur_sum = cur_sum + arr[i]
+        cur_sum = cur_sum + arr[i]  # current sum equal current array index + current sum.
         if cur_sum > max_so_far:
             max_so_far = cur_sum
-            start_index = pointer
-            end_index = i
+            start_index = pointer  # start index at the pointer that gave us the max_so_far.
+            end_index = i  # end index at current index (that gave us the max_so_far)
             i += 1
         else:
             if cur_sum < 0:
                 cur_sum = 0
-                pointer = i + 1
+                pointer = i + 1  # if current sum falls below zero, pointer is moved 1 step forward.
 
     print("msf: ", max_so_far)
     print("start_index: ", start_index)
