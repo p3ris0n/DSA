@@ -26,6 +26,8 @@ def pair_sum(arr, k):
     return pairs if pairs else "No pair sum."
 
 
+print("---Find array sum pairs---")
+
 arr_elements = input("Enter elements separated by commas: ")
 arr_list = arr_elements.split(',')
 arr = []
@@ -33,7 +35,7 @@ for x in arr_list:
     arr.append(int(x))
 
 print(arr)
-k = int(input("k: "))
+k = int(input("input integer to locate its pair sum: "))
 print(pair_sum(arr, k))
 
 
