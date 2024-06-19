@@ -5,10 +5,10 @@
 # find which elements is missing.
 
 import numpy as np
+import array_list as al # using the array list python file as our array module
 
 
 def make_array(arr):
-
     b_arr = np.array(arr)  # initialize array to numpy array.
     np.random.shuffle(b_arr)  # shuffle the array
 
@@ -46,14 +46,21 @@ def contrast_between_arrays(arr_1, arr_2):
     return "No missing elements"
 
 
-arr_element = input("elements, separated with commas: ")
+"""arr_element = input("elements, separated with commas: ")
 arr_list = arr_element.split(',')
 arr = []
 for x in arr_list:
-    arr.append(int(x))
+    arr.append(int(x))"""
+arr = []
+with open("list.json", "r") as file:
+    arr_list = json.load(file)
+    arr.append(arr_list)
 
-original_array = np.array(arr)
+    print(arr)
+
+"""original_array = np.array(arr)
 shuffled_and_deleted_array = make_array(arr)
 print(original_array)
 print(shuffled_and_deleted_array)
 print(contrast_between_arrays(original_array, shuffled_and_deleted_array))
+"""

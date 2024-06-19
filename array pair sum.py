@@ -3,6 +3,8 @@
 #  given an integer array,
 #  output all unique pairs that sum up to "k".
 
+import json
+
 def pair_sum(arr, k):
     arr.sort()
     pointer_1 = 0  # initializing pointer_1 at the start of the array.
@@ -34,9 +36,10 @@ arr = []
 for x in arr_list:
     arr.append(int(x))
 
-print(arr)
-k = int(input("input integer to locate its pair sum: "))
-print(pair_sum(arr, k))
+
+
+# k = int(input("input integer to locate its pair sum: "))
+# print(pair_sum(arr, k))
 
 
 
