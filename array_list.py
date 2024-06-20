@@ -13,4 +13,3 @@ with open("list.json", "r") as file:
     arr = json.load(file)
 
 print(arr)
-
