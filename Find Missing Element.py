@@ -6,7 +6,6 @@
 
 import json
 import numpy as np
-# import array_list # using the array list python file as our array module
 
 
 def make_array(arr):
