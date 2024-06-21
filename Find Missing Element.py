@@ -4,8 +4,9 @@
 # the elements in the first array and then deleting a random element. given the two arrays,
 # find which elements is missing.
 
+import json
 import numpy as np
-import array_list as al # using the array list python file as our array module
+# import array_list # using the array list python file as our array module
 
 
 def make_array(arr):
@@ -45,22 +46,15 @@ def contrast_between_arrays(arr_1, arr_2):
             return k
     return "No missing elements"
 
+# get array data from list file.
 
-"""arr_element = input("elements, separated with commas: ")
-arr_list = arr_element.split(',')
-arr = []
-for x in arr_list:
-    arr.append(int(x))"""
-arr = []
 with open("list.json", "r") as file:
-    arr_list = json.load(file)
-    arr.append(arr_list)
+    data = json.load(file)
+original_array = data.get("list2", [])
+shuffled_and_deleted_array = make_array(original_array)
 
-    print(arr)
 
-"""original_array = np.array(arr)
-shuffled_and_deleted_array = make_array(arr)
-print(original_array)
-print(shuffled_and_deleted_array)
-print(contrast_between_arrays(original_array, shuffled_and_deleted_array))
-"""
+print("Original array:", original_array)
+print("Shuffled and deleted array:", shuffled_and_deleted_array)
+missing_element = contrast_between_arrays(original_array, shuffled_and_deleted_array)
+print("Missing element:", missing_element)
