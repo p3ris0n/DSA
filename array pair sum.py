@@ -4,6 +4,7 @@
 #  output all unique pairs that sum up to "k".
 
 import json
+import sys
 
 def pair_sum(arr, k):
     arr.sort()
@@ -29,17 +30,18 @@ def pair_sum(arr, k):
 
 
 print("---Find array sum pairs---")
+print(f"---Get list from 'list.json' file---")
 
-arr_elements = input("Enter elements separated by commas: ")
-arr_list = arr_elements.split(',')
-arr = []
-for x in arr_list:
-    arr.append(int(x))
+# reading array data from file
 
-
-
-# k = int(input("input integer to locate its pair sum: "))
-# print(pair_sum(arr, k))
-
-
-
+with open("list.json", "r") as file:
+    data = json.load(file)
+listname = str(input("array list's name: "))
+if listname not in data:
+    print("no such list in file.")
+    sys.exit()
+else:
+    arr = data.get(listname, [])
+    k = int(input("value to locate its pair sum(s): "))
+    print(pair_sum(arr, k))
+    print("array used: ", arr)

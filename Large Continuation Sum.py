@@ -2,6 +2,9 @@
 # Given an array of integers (positive and negative)
 # find the largest continuous sum.
 
+import json
+import array_list as al  # writing new list to file.
+
 # using kadane's algorithm.
 
 def large_contiguous_sum(arr):
@@ -28,5 +31,10 @@ def large_contiguous_sum(arr):
     return arr[start_index:end_index + 1]  # splicing, with incursion of the end element itself.
 
 
-arr = [4, -3, -2, 2, 3, 1, -2, -3, 6, -6, -4, 2, 1]
+# reading new list from file.
+with open("list.json", "r") as file:
+    data = json.load(file)
+
+# using new list as array.
+arr = data.get(al.list_name, [])
 print("max sum of contiguous sum: ", large_contiguous_sum(arr))

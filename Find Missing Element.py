@@ -4,6 +4,9 @@
 # the elements in the first array and then deleting a random element. given the two arrays,
 # find which elements is missing.
 
+# to append a custom list, import 'array_list'
+
+import sys
 import json
 import numpy as np
 
@@ -49,11 +52,16 @@ def contrast_between_arrays(arr_1, arr_2):
 
 with open("list.json", "r") as file:
     data = json.load(file)
-original_array = data.get("list2", [])
-shuffled_and_deleted_array = make_array(original_array)
+    listname = str(input("array list's name: "))
+    if listname not in data: # if list name recognized, exit execution.
+        print("no such array name in file.")
+        sys.exit()
+    else:
+        original_array = data.get(listname, [])
+        shuffled_and_deleted_array = make_array(original_array)
 
 
-print("Original array:", original_array)
-print("Shuffled and deleted array:", shuffled_and_deleted_array)
-missing_element = contrast_between_arrays(original_array, shuffled_and_deleted_array)
-print("Missing element:", missing_element)
+        print("Original array:", original_array)
+        print("Shuffled and deleted array:", shuffled_and_deleted_array)
+        missing_element = contrast_between_arrays(original_array, shuffled_and_deleted_array)
+        print("Missing element:", missing_element)
