@@ -25,7 +25,7 @@ def large_contiguous_sum(arr):
                 cur_sum = 0
                 pointer = i + 1  # if current sum falls below zero, pointer is moved 1 step forward.
 
-    print("msf: ", max_so_far)
+    print("max-so-far: ", max_so_far)
     print("start_index: ", start_index)
     print("end_index: ", end_index)
     return arr[start_index:end_index + 1]  # splicing, with incursion of the end element itself.
