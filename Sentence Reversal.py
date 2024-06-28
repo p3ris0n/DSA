@@ -1,7 +1,6 @@
 # simple code block to reverse an inputted string or combination of strings.
 
 import json
-#import array_list as al
 
 def reverse(sentence):
     white_space = " "
@@ -15,6 +14,7 @@ def reverse(sentence):
 
 sentence = input("sentence to be reversed: ")
 listname = input("list name: ")
+
 data = {listname: sentence}
 with open("list.json", "w") as file:
     json.dump(data, file, indent=4)

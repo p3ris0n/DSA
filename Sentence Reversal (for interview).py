@@ -1,7 +1,6 @@
 # an interview problem to reverse the order of words in a given sentence.
 
 import json
-import array_list
 
 def reverse(sentence):
     words = []
@@ -23,3 +22,12 @@ def reverse(sentence):
     return " ".join(reversed(words))
 
 
+sentence = input("sentence to be reversed: ")
+listname = input("list name: ")
+
+data = {listname: sentence}
+with open("list.json", "w") as file:
+    json.dump(data, file, indent=4)
+
+
+print(f"reversed: ", reverse(sentence))
